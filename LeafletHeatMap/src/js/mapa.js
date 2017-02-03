@@ -4,7 +4,7 @@ var v_mapa = null;
 function cargarMapa(){
 	var v_latitud =  41.4881;
 	var v_longitud = -80.1468;
-	var v_zoom = 2;
+	var v_zoom = 3;
 	
 	// Datos de prueba.
 	var v_testData = {
