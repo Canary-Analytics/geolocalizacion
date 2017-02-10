@@ -1,5 +1,10 @@
+
+//Esto no se hace para ello tengo que pasar el objeto json desde el server e importarlo aqui para su procesamiento 
+
+var datos = require("./output.json")
 // Variables y Objetos globales.
 var v_mapa = null;
+
 
 function cargarMapa(){
 	var v_latitud =  41.4881;
@@ -420,11 +425,11 @@ function cargarMapa(){
 	  //   (there will always be a red spot with useLocalExtremas true)
 	  "useLocalExtrema": true,
 	  // which field name in your data represents the latitude - default "lat"
-	  latField: 'lat',
+	  latField: 'datos.Latitud',
 	  // which field name in your data represents the longitude - default "lng"
-	  lngField: 'lng',
+	  lngField: 'datos.Longitud',
 	  // which field name in your data represents the data value - default "value"
-	  valueField: 'count'
+	  valueField: 1
 	};
 	
 	// Humanitarian Style.
@@ -446,5 +451,5 @@ function cargarMapa(){
 		]
 	});
 	
-	v_heatmapLayer.setData(v_testData);
+	v_heatmapLayer.setData(datos);
 } 
