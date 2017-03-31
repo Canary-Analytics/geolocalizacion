@@ -24,7 +24,7 @@ for (var i = 0; i < datos.length; i++){
 		var auxLatitud =  latitud / 2;
 		var latitudMedia = datos[i].place.bounding_box.coordinates[0][0][1] + auxLatitud;
 		console.log("Punto medio: ");
-		console.log("Longitud: " + longitudMedia + "	, Latitud: " + latitudMedia);
+		console.log("Latitud: " + latitudMedia + "	, Longitud: " + longitudMedia);
 		pruebaDatos.data[i] = { 
 								lat : longitudMedia,
 								lng : latitudMedia,
