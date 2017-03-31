@@ -1,15 +1,15 @@
-
-//Esto no se hace para ello tengo que pasar el objeto json desde el server e importarlo aqui para su procesamiento 
-
-var datos = require("./output.json")
 // Variables y Objetos globales.
 var v_mapa = null;
-
-
+let datos =  require("../../data/tweets.json");
+console.log("Datos: ");
+//console.log(datos);
+for (var i = 0; i < datos.length; i++){
+	console.log(datos[i].retweeted_status);
+}
 function cargarMapa(){
 	var v_latitud =  41.4881;
 	var v_longitud = -80.1468;
-	var v_zoom = 3;
+	var v_zoom = 2;
 	
 	// Datos de prueba.
 	var v_testData = {
@@ -425,11 +425,11 @@ function cargarMapa(){
 	  //   (there will always be a red spot with useLocalExtremas true)
 	  "useLocalExtrema": true,
 	  // which field name in your data represents the latitude - default "lat"
-	  latField: 'datos.Latitud',
+	  latField: 'lat',
 	  // which field name in your data represents the longitude - default "lng"
-	  lngField: 'datos.Longitud',
+	  lngField: 'lng',
 	  // which field name in your data represents the data value - default "value"
-	  valueField: 1
+	  valueField: 'count'
 	};
 	
 	// Humanitarian Style.
@@ -451,5 +451,5 @@ function cargarMapa(){
 		]
 	});
 	
-	v_heatmapLayer.setData(datos);
+	v_heatmapLayer.setData(v_testData);
 } 
