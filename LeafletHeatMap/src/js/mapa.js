@@ -3,13 +3,45 @@ var v_mapa = null;
 let datos =  require("../../data/tweets.json");
 console.log("Datos: ");
 //console.log(datos);
+var pruebaDatos = {
+			max : 8,
+			data : [
+			]
+		}
 for (var i = 0; i < datos.length; i++){
-	console.log(datos[i].retweeted_status);
+	console.log("Latitud: " + datos[i].place.bounding_box.coordinates[0][1][0] + "	, Longitud: " + datos[i].place.bounding_box.coordinates[0][1][1]);
+	var lat1 = datos[i].place.bounding_box.coordinates[0][1][0];
+	var lat2 = datos[i].place.bounding_box.coordinates[0][2][0];
+	//console.log("lat1: " + lat1 + "lat2" + lat2);
+	//for (var j = 0; j < 4; j++){
+		//console.log(datos[i].place.bounding_box.coordinates[0][j]);
+		var longitud = (datos[i].place.bounding_box.coordinates[0][1][0] - datos[i].place.bounding_box.coordinates[0][2][0]);
+		//console.log("Latitud: " + latitud);
+		var auxLongitud = longitud / 2;
+		var longitudMedia = datos[i].place.bounding_box.coordinates[0][2][0] + auxLongitud;
+
+		var latitud = datos[i].place.bounding_box.coordinates[0][1][1] - datos[i].place.bounding_box.coordinates[0][0][1];
+		var auxLatitud =  latitud / 2;
+		var latitudMedia = datos[i].place.bounding_box.coordinates[0][0][1] + auxLatitud;
+		console.log("Punto medio: ");
+		console.log("Longitud: " + longitudMedia + "	, Latitud: " + latitudMedia);
+		pruebaDatos.data[i] = { 
+								lat : longitudMedia,
+								lng : latitudMedia,
+								count : 20
+							};
+
+		console.log("pruebaDatos: " + pruebaDatos);
+
+
+	//}
+	//console.log("-----------");
+	//console.log(datos[i].place.bounding_box.coordinates[0]);
 }
 function cargarMapa(){
-	var v_latitud =  41.4881;
-	var v_longitud = -80.1468;
-	var v_zoom = 2;
+	var v_latitud = 28.50891;
+	var v_longitud = -16.33778;
+	var v_zoom = 5;
 	
 	// Datos de prueba.
 	var v_testData = {
@@ -451,5 +483,5 @@ function cargarMapa(){
 		]
 	});
 	
-	v_heatmapLayer.setData(v_testData);
+	v_heatmapLayer.setData(pruebaDatos);
 } 
