@@ -26,12 +26,12 @@ for (var i = 0; i < datos.length; i++){
 		console.log("Punto medio: ");
 		console.log("Latitud: " + latitudMedia + "	, Longitud: " + longitudMedia);
 		pruebaDatos.data[i] = { 
-								lat : longitudMedia,
-								lng : latitudMedia,
+								lat : latitudMedia,
+								lng : longitudMedia,
 								count : 20
 							};
 
-		console.log("pruebaDatos: " + pruebaDatos);
+		console.log("pruebaDatos: " + pruebaDatos.data[i].lat);
 
 
 	//}

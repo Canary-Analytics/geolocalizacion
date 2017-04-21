@@ -13,6 +13,9 @@
   "author": "v",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.15.2",
+    "express-ejs-layouts": "^2.3.0",
+    "http": "0.0.0",
     "xls-to-json": "^0.4.0"
   }
 }
