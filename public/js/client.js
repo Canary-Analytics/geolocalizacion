@@ -3,10 +3,10 @@ $(document).ready(() => {
     $.get('/datos', {}, (data) => {
         console.log(data)
 
-        var v_latitud = 28.50891;
-        var v_longitud = -16.33778;
-        var v_zoom = 5;
-        var cfg = {
+        let v_latitud = 28.50891;
+        let v_longitud = -16.33778;
+        let v_zoom = 5;
+        let cfg = {
             // radius should be small ONLY if scaleRadius is true (or small radius is intended)
             // if scaleRadius is false it will be the constant radius used in pixels
             "radius": 2,
@@ -26,17 +26,17 @@ $(document).ready(() => {
         };
 
         // Humanitarian Style.
-        var v_base_layer = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+        let v_base_layer = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
             attribution: 'Data \u00a9 <a href="http://www.openstreetmap.org/copyright"> OpenStreetMap Contributors </a> Tiles \u00a9 HOT',
-            maxZoom: v_zoom
+            maxZoom: 5
         });
 
         // Layer Mapa de calor.
-        var v_heatmapLayer = new HeatmapOverlay(cfg);
+        let v_heatmapLayer = new HeatmapOverlay(cfg);
 
         v_mapa = new L.Map('mapa', {
             center: new L.LatLng(v_latitud, v_longitud),
-            zoom: v_zoom,
+            zoom: 2,
             layers: [v_base_layer, v_heatmapLayer]
         });
 

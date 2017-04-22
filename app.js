@@ -5,7 +5,7 @@ const app = express();
 const path = require('path');
 
 const coords = require('./utils');
-const datos =  require("./utils/data/tweets.json");
+const datos =  require("./utils/data/datos.json");
 
 app.use(express.static(__dirname + '/public'));
 
@@ -21,6 +21,7 @@ app.get('/datos', function(req, res) {
     let coordenadas = coords.calculate(datos);
     res.json(coordenadas);
 });
+
 
 app.listen(app.get('port'), () => {
     console.log(`Node app is running at localhost: ${app.get('port')}` );
