@@ -5,11 +5,11 @@ $(document).ready(() => {
 
         let v_latitud = 28.50891;
         let v_longitud = -16.33778;
-        let v_zoom = 5;
+        //let v_zoom = 5;
         let cfg = {
             // radius should be small ONLY if scaleRadius is true (or small radius is intended)
             // if scaleRadius is false it will be the constant radius used in pixels
-            "radius": 2,
+            "radius": 3,
             "maxOpacity": .8,
             // scales the radius based on map zoom
             "scaleRadius": true,
@@ -26,9 +26,9 @@ $(document).ready(() => {
         };
 
         // Humanitarian Style.
-        let v_base_layer = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-            attribution: 'Data \u00a9 <a href="http://www.openstreetmap.org/copyright"> OpenStreetMap Contributors </a> Tiles \u00a9 HOT',
-            maxZoom: 5
+        let v_base_layer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29zYWNhIiwiYSI6ImNqMjIzNHMwdTAwNWkzM3BodGVzdDYzaXIifQ.Sy1p62VWlmf1UMh53B1W7g', {
+            attribution: '\u00a9 <a href="https://www.mapbox.com/about/maps/"> Mapbox </a> \u00a9 <a href="http://www.openstreetmap.org/copyright"> OpenStreetMap Contributors </a> Tiles \u00a9 HOT',
+            maxZoom: 15
         });
 
         // Layer Mapa de calor.
