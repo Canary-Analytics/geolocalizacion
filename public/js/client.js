@@ -9,10 +9,10 @@ $(document).ready(() => {
         let cfg = {
             // radius should be small ONLY if scaleRadius is true (or small radius is intended)
             // if scaleRadius is false it will be the constant radius used in pixels
-            "radius": 3,
+            "radius": 20,
             "maxOpacity": .8,
             // scales the radius based on map zoom
-            "scaleRadius": true,
+            "scaleRadius": false,
             // if set to false the heatmap uses the global maximum for colorization
             // if activated: uses the data maximum within the current map boundaries
             //   (there will always be a red spot with useLocalExtremas true)
@@ -28,7 +28,8 @@ $(document).ready(() => {
         // Humanitarian Style.
         let v_base_layer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY29zYWNhIiwiYSI6ImNqMjIzNHMwdTAwNWkzM3BodGVzdDYzaXIifQ.Sy1p62VWlmf1UMh53B1W7g', {
             attribution: '\u00a9 <a href="https://www.mapbox.com/about/maps/"> Mapbox </a> \u00a9 <a href="http://www.openstreetmap.org/copyright"> OpenStreetMap Contributors </a> Tiles \u00a9 HOT',
-            maxZoom: 15
+            maxZoom: 15,
+            minZoom: 2
         });
 
         // Layer Mapa de calor.
